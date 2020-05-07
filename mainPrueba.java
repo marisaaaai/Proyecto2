@@ -10,7 +10,7 @@ import java.io.File;
 import java.util.*; 
 
 public class mainPrueba{
-	public static void mainPrueba(String[]args){
+	public static void main(String[]args){
 		Scanner scan = new Scanner(System.in);
 		ArrayList<String> nombre = new ArrayList<String>();
 		ArrayList<String> link = new ArrayList<String>();
@@ -24,7 +24,7 @@ public class mainPrueba{
 		int dinamismoEscogido = scan.nextInt();
 		System.out.println("\nDesea que el tipo de ejercicio sea… \n1. Yoga \n2. Crossfit \n3. Tai Chi \n4. Calistenia \n5. Pilates \n6. Cardio \n7. Body Building \n8. Zumba \nPor favor ingrese el numero de la opcion escogida: ");
 		int ejercicioEscogido = scan.nextInt();
-		System.out.println("\nDesea que el canal tenga clases en vivo… (si se le es indiferente por favor seleccionar 1 \n1. No  \2. Si\nPor favor Ingrese su opcion escogida: ");
+		System.out.println("\nDesea que el canal tenga clases en vivo… (si se le es indiferente por favor seleccionar 1) \n1. No  \n2. Si\nPor favor Ingrese su opcion escogida: ");
 		int liveEscogido = scan.nextInt();
 		Scanner s = null;
 		String archive = "baseDatos.txt";
@@ -64,24 +64,25 @@ public class mainPrueba{
 		int di=0;
 		int e=0;
 		int l=0;
+		int largo=nombre.size();
 		while(w!=false){
-			if(datos[p]=="<15 min"){
+			if(datos.get(p).equals("<15min")){
 				d=1;
 			}
 			else{
-				if(datos[p]=="15min promedio"){
+				if(datos.get(p).equals("15min promedio")){
 					d=2;
 				}
 				else{
-					if(datos[p]=="30min promedio"){
+					if(datos.get(p).equals("30min promedio")){
 						d=3;
 					}
 					else{
-						if(datos[p]=="45min promedio"){
+						if(datos.get(p).equals("45min promedio")){
 							d=4;
 						}
 						else{
-							if(datos[p]=="1 hora promedio"){
+							if(datos.get(p).equals("1 hora promedio")){
 								d=5;
 							}
 							else{
@@ -91,37 +92,37 @@ public class mainPrueba{
 					}
 				}
 			}
-			if(datos[p+1]=="Activo"){
+			if(datos.get(p+1).equals("Activo")){
 				di=1;
 			}
 			else{
 				di=2;
 			}
-			if(datos[p+2]=="Yoga"){
+			if(datos.get(p+2).equals("Yoga")){
 				e=1;
 			}
 			else{
-				if(datos[p+2]=="Crossfit"){
+				if(datos.get(p+2).equals("Crossfit")){
 					e=2;
 				}
 				else{
-					if(datos[p+2]=="Tai Chi"){
+					if(datos.get(p+2).equals("Tai Chi")){
 						e=3;
 					}
 					else{
-						if(datos[p+2]=="Calistenia"){
+						if(datos.get(p+2).equals("Calistenia")){
 							e=4;
 						}
 						else{
-							if(datos[p+2]=="Pilates"){
+							if(datos.get(p+2).equals("Pilates")){
 								e=5;
 							}
 							else{
-								if(datos[p+2]=="Cardio"){
+								if(datos.get(p+2).equals("Cardio")){
 									e=6;
 								}
 								else{
-									if(datos[p+2]=="Body Building"){
+									if(datos.get(p+2).equals("Body Building")){
 										e=7;
 									}
 									else{
@@ -133,7 +134,7 @@ public class mainPrueba{
 					}
 				}
 			}
-			if(datos[p+3]=="Pre grabadas"){
+			if(datos.get(p+3).equals("Pre grabadas")){
 				l=1;
 			}
 			else{
@@ -142,13 +143,18 @@ public class mainPrueba{
 			int[] cualidades = {d,di,e,l};
 			if((cualidades[0]==duracionEscogida) && (cualidades[1]==dinamismoEscogido) && (cualidades[2]==ejercicioEscogido) && (cualidades[3]==liveEscogido)){
 				w=false;
+				System.out.println("Se le recomienda el canal: "+nombre.get(po) + "\nCon link: " +link.get(po));
+				System.out.println("Gracias por usar nuestro sistema de recomendacion");
 			}
 			else{
-				p=p+3;
+				p=p+4;
 				po=po+1;
 			}
+			if(po==largo){
+				System.out.println("No se ha encontrado un canal con sus cualidades");
+				System.out.println("Lo lamentamos, pero gracias por ingresar a nuestro sistema de recomendacion");
+				w=false;
+			}
 		}
-		System.out.println("Se le recomienda el canal :"+nombre[po] + "\nCon link: " +link[po]);
-		System.out.println("Gracias por usar nuestro sistema de recomendacion");
 	}
 }
