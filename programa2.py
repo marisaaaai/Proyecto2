@@ -25,7 +25,7 @@ if (op=="1"):
     print("\n***********************************************************************************\nSe te mostrara una serie de preguntas con sus opciones numeradas, por favor ingresa el numero de la opcion que te gustaria escoger")
     duracionElegida=input("\n***********************************************************************************\nDe las duraciones que usted preferiria que dure los videos del canal de Youtube en promedio, Cual preferiria...\n1. menos de 15min \n2. 15 min promedio \n3. 30 min promedio \n4. 45 min promedio \n5. 1 hora promedio \n6. mas de 1 hora\n\nIngresa el numero de tu opcion: ")
     dinamicidadElegida=input("\n***********************************************************************************\nDesea que el canal tenga videos de ejercicios… \n1.Activo (vídeos donde se estará moviendo con mucha frecuencia, donde tendrá una actividad cardiaca alta) \n2. Pasivos (Tipo de ejercicios en donde no se habrá de mover demasiado seguido \n\nIngresa el numero de tu opcion: ")
-    ejercicioEscogido=input("\n***********************************************************************************\nDesea que el tipo de ejercicio sea… \n1. Yoga \n2. Crossfit \n3. Tai Chi \n4. Calistenia \n5. Pilates \n6. Cardio \n7. Body Building \n8. Zumba\n9.Aerobicos\n\nIngresa el numero de tu opcion: ")
+    ejercicioEscogido=input("\n***********************************************************************************\nDesea que el tipo de ejercicio sea… \n1. Yoga \n2. Crossfit \n3. Tai Chi \n4. Calistenia \n5. Pilates \n6. Cardio \n7. Body Building \n8. Zumba\n9.Aerobicos\n10.Stretching\n\nIngresa el numero de tu opcion: ")
     liveEscogido=input("\n***********************************************************************************\nDesea que el canal tenga clases en vivo… (si se le es indiferente por favor seleccionar 2) \n1. Si  \n2. No\n\nIngresa el numero de tu opcion: ")
     p=0
     po=0
@@ -95,7 +95,10 @@ if (op=="1"):
                                     if(ejercicio=="Zumba"):
                                         e="8"
                                     else:
-                                        e="9"
+                                        if(ejercicio=="Aerobicos"):
+                                            e="9"
+                                        else:
+                                            e="10"
         
         if(tipo=="Pre Grabadas"):
             t="2"
@@ -124,7 +127,7 @@ else:
             linkCanal=input("\n***********************************************************************************\nIngrese el link del canal que desea agregar")
             duracionCanalProvisional=input("\n***********************************************************************************\nCuanto duran, en promedio,los videos de su canal?...\n1. menos de 15min \n2. 15 min promedio \n3. 30 min promedio \n4. 45 min promedio \n5. 1 hora promedio \n6. mas de 1 hora\n\nIngresa el numero de tu opcion: ")
             dinamismoCanalProvisional=input("\n***********************************************************************************\nSu canal tiene videos de ejercicios… \n1.Activos (vídeos donde se estará moviendo con mucha frecuencia, donde tendrá una actividad cardiaca alta) \n2. Pasivos (Tipo de ejercicios en donde no se habrá de mover demasiado seguido \n\nIngresa el numero de tu opcion: ")
-            ejercicioCanalProvisional=input("\n***********************************************************************************\nEn que tipo de ejercicio encaja su canal… \n1. Yoga \n2. Crossfit \n3. Tai Chi \n4. Calistenia \n5. Pilates \n6. Cardio \n7. Body Building \n8. Zumba\n9.Aerobicos\n\nIngresa el numero de tu opcion: ")
+            ejercicioCanalProvisional=input("\n***********************************************************************************\nEn que tipo de ejercicio encaja su canal… \n1. Yoga \n2. Crossfit \n3. Tai Chi \n4. Calistenia \n5. Pilates \n6. Cardio \n7. Body Building \n8. Zumba\n9.Aerobicos\n10.Stretching\n\nIngresa el numero de tu opcion: ")
             tipoCanalProvisional=input("\n***********************************************************************************\nSu canal tiene clases en vivo? \n1. Si  \n2. No\n\nIngresa el numero de tu opcion: ")
             if(duracionCanalProvisional=="1"):
                 duracionCanal="menos 15 min"
@@ -170,7 +173,10 @@ else:
                                         if(ejercicioCanalProvisional=="8"):
                                             ejercicioCanal="Zumba"
                                         else:
-                                            ejercicioCanal="Aerobicos"
+                                            if(ejercicioCanalProvisional=="9"):
+                                                ejercicioCanal="Aerobicos"
+                                            else:
+                                                ejercicioCanal="Stretching"
             if(tipoCanalProvisional=="1"):
                 tipoCanal="En Vivo"
             else:
